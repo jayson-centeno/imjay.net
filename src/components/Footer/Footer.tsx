@@ -45,7 +45,7 @@ export class Footer extends React.Component<any, any> {
                             @218-2019 <span className="highlight">www.imjay.net</span>. All Rights Reserved
                         </div>
                         <div className="col-sm-7">
-                            Powered by <span className="highlight">.Net Core, API, ReactJs, Sql Server</span>
+                            Powered by <span className="highlight">.Net Core, API, Nodejs, ReactJs, Sql Server</span>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 // type PublicationProps = PublicationStore.PublicationsState & typeof PublicationStore.actionCreators & RouteComponentProps<{}>;
 // class Home extends React.Component<PublicationProps, {}> {
 
-class Home extends React.Component {
+class Home extends React.Component<any, any> {
 
     public render() {
         return <div>
