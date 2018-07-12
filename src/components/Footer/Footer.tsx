@@ -10,7 +10,7 @@ export class Footer extends React.Component<any, any> {
                 <div className='container'>
                     <div className="row">
                         <div className="col-sm-5 margin-top-10">
-                            <h3 className="logo-text">www.imjay.net<span className="blinker" /></h3>
+                            <h3 className="logo-text">{'\{ '} ImJay.Net<span className="blinker" />{' \}'}</h3>
 
                             <div className="row margin-top-30">
 
@@ -44,15 +44,11 @@ export class Footer extends React.Component<any, any> {
 
                         </div>
                         <div className="col-sm-4">
-
                             <div className="row margin-top-30">
-
                                 <div className="col-sm-12">
-
                                     <span className="title">
                                         EXPLORE
                                     </span>
-
                                     <ul id="explore" className="margin-top-10">
                                         <li>
                                             <a className="link">Web Tools</a>
@@ -67,27 +63,17 @@ export class Footer extends React.Component<any, any> {
                                             <Link className="link" to="/contact">Say hello</Link>
                                         </li>
                                     </ul>
-
                                 </div>
-
                             </div>
-
-
                         </div>
                         <div className="col-sm-3">
-
                             <div className="row margin-top-30">
-
                                 <div className="col-sm-12">
-
                                     <span className="title">
                                         LATEST BLOG POSTS
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -99,7 +85,7 @@ export class Footer extends React.Component<any, any> {
                             @2018-2019 <span className="highlight">www.imjay.net</span>. All Rights Reserved
                         </div>
                         <div className="col-sm-7">
-                            Powered by <span className="highlight">.Net Core, API, NodeJs, Typescript, React-Redux, Sql Server</span>
+                            Powered by <span className="highlight">.Net Core, NodeJs, Typescript, React-Redux, Sql Server</span>
                         </div>
                     </div>
                 </div>

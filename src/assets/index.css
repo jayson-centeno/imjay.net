@@ -36,7 +36,7 @@ ul { margin: 0; padding: 0; }
 	.custom-nav.navbar-default .navbar-nav li.active a:hover { background: none; color: white; }
 .custom-nav .collapse.navbar-collapse { padding-left: 0; }
 
-.publication { background: url(../assets/images/bg.jpg) fixed 0 0 repeat; position: relative; background-color: #000; margin-top: 100px; }
+.publication { background: url(../assets/images/bg.jpg) fixed 0 0 repeat; position: relative; background-color: #000; }
 	.publication p { color: #c0bfbd }
 	.publication.one-column { background-position-y: 80%; }
 	.publication p { color: #ccc; font-size: 16px; }

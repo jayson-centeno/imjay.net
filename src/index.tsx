@@ -1,3 +1,4 @@
+import "font-awesome/css/font-awesome.min.css"
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/index.css';
 import { createBrowserHistory } from 'history';
@@ -5,14 +6,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router'
 import configureStore from './configureStore';
 import registerServiceWorker from './registerServiceWorker';
 import { IApplicationState }  from './store';
 import { ConnectedRouter } from 'connected-react-router'
 import App from './App';
-import Home from './containers/home/home';
-import About from './containers/about/About';
+import { routes } from './routes';
 
 const history = createBrowserHistory();
 
@@ -26,13 +25,8 @@ function renderApp() {
     ReactDOM.render(
         <AppContainer>
             <Provider store={store} >
-                <ConnectedRouter history={ history } >
-                    <App>
-                        <Switch>
-                            <Route exact={true} path='/' component={Home} />
-                            <Route path='/about' component={About} />
-                        </Switch>
-                    </App>
+                <ConnectedRouter history={history} >
+                    <App children={routes} />
                 </ConnectedRouter>
             </Provider>
         </AppContainer>,
@@ -43,3 +37,11 @@ function renderApp() {
 }
 
 renderApp();
+
+// // Allow Hot Module Replacement
+// if (module.hot) {
+//     module.hot.accept('./routes', () => {
+//         routes = require<typeof RoutesModule>('./routes').routes;
+//         renderApp();
+//     });
+// }

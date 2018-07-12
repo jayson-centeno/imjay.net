@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
+import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from 'react-router-dom';
 import { Publication } from "../publication/Publication";
 import * as PublicationStore from '../../store/Publications'
@@ -12,6 +12,9 @@ class Home extends React.Component<PublicationProps, {}> {
 
     public render() {
         return <div>
+            <Helmet>
+                <title>Jayson Centeno Personal Website</title>
+            </Helmet>
             <div className="container">
                 <div className="row margin-bottom-250">
                     <div className="col-sm-5">
