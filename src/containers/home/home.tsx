@@ -1,75 +1,66 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-// import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
+import { Publication } from "../publication/Publication";
+import * as PublicationStore from '../../store/Publications'
 
-// import { Publication } from "../Publication/Publication";
-// import * as PublicationStore from '../../store/Publications'
-// import { ApplicationState } from '../../store'
+import { TwoColumnContentBody } from '../../components/master-layout/TwoColumnContentBody';
+type PublicationProps = PublicationStore.IPublicationsState & typeof PublicationStore.actionCreators & RouteComponentProps<{}>;
 
-
-// type PublicationProps = PublicationStore.PublicationsState & typeof PublicationStore.actionCreators & RouteComponentProps<{}>;
-// class Home extends React.Component<PublicationProps, {}> {
-
-class Home extends React.Component<any, any> {
+class Home extends React.Component<PublicationProps, {}> {
 
     public render() {
         return <div>
             <div className="container">
-                <div className="row margin-bottom-120">
+                <div className="row margin-bottom-250">
                     <div className="col-sm-5">
                         <h1 className="main-title">Jayson is a Passionate Senior .Net & Front-End Developer</h1>
                     </div>
-                    <div className="col-sm-7" />
+                    <div className="col-sm-7">
+                        <div id="profile-pic" />
+                    </div>
                 </div>
                 <div className="row">
+
                     <div className="col-sm-7">
                         <h2 className="sub-title">About</h2>
                         <hr className="divider1" />
                         <hr className="divider2" />
-                        <p>
-                            As both designer and developer of projects that require <br /> a laser focus on both,
-                            I unite form and function to <br />meet both user needs and business goals.
+                        <p className="mid-text">
+                            As both designer and developer of projects that require <br /> a laser focus on both, I unite form and function to <br />meet both user needs and business goals.
                         </p>
-                        <p>
-                            Currently improving customer experiences as Senior UX <br /> Designer at BrightEdge.
+                        <p className="mid-text">
+                            Currently working as a FullStack Developer.
                         </p>
                     </div>
-                    <div className="col-sm-5 ">
 
+                    <div className="col-sm-5">
                         <h2 className="sub-title">Specializing In</h2>
                         <hr className="divider1" />
                         <hr className="divider2" />
                         <div className="row">
-                            <p className="col-sm-6">
-                                ASP.Net <br />
-                                Front-End Development
+                            <div className="col-sm-6">
+                                <p className="mid-text">
+                                    ASP.Net <br />
+                                    Front-End Development
                                 </p>
-                            <p className="col-sm-6">
-                                API <br />
-                                Research
-                                </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="publication">
-                <div className="hex" />
-                <div className="container relative">
-                    <div className="pub-wrapper">
-                        <div className="row">
-                            <div className="col-md-7">
-                                <h1 className="main-title publication-title">Publications on .Net and Front end</h1>
-                                <a className="link link-list">See list</a>
                             </div>
-                            <div className="col-md-5" />
-                                {/* <Publication isLoading={this.props.isLoading} publications={this.props.publications} /> */}
-                            {/* </div> */}
+                            <div className="col-sm-6">
+                                <p className="mid-text">
+                                    API <br />
+                                    Research
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="hex-invert" />
             </div>
+            
+            <TwoColumnContentBody {...this.props} Title="Publications on .Net and Front end" CustomRootClass="home">
+                <Publication isLoading={this.props.isLoading} publications={this.props.publications} />
+            </TwoColumnContentBody>
+
         </div>;
     }
 }

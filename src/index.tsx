@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
+import './assets/index.css';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -12,6 +12,7 @@ import { IApplicationState }  from './store';
 import { ConnectedRouter } from 'connected-react-router'
 import App from './App';
 import Home from './containers/home/home';
+import About from './containers/about/About';
 
 const history = createBrowserHistory();
 
@@ -29,6 +30,7 @@ function renderApp() {
                     <App>
                         <Switch>
                             <Route exact={true} path='/' component={Home} />
+                            <Route path='/about' component={About} />
                         </Switch>
                     </App>
                 </ConnectedRouter>

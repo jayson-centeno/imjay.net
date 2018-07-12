@@ -1,5 +1,5 @@
 ﻿import { Reducer } from 'redux';
-import { IAppThunkAction } from './';
+import { IAppThunkAction } from '.';
 import { addTask } from 'domain-task';
 import { IPublicationService } from "../services/PublicationService";
 import container from "../di/bootstrap"

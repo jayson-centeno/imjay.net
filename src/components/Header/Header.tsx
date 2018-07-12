@@ -1,15 +1,15 @@
 ﻿import * as React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 export class Header extends React.Component<{}, {}> {
     public render() {
-        return <Row>
-            <Col sm={9}>
-                <h3 className="logo-text">{'\{ '} JCODES<span className="blinker" />{' \}'}</h3>
-            </Col>
-            <Col sm={3} className="pull-right">
+        return <div className='row'>
+            <div className="col-sm-9">
+                <Link className="logo-link" to={'/'}><h3 className="logo-text">imjay.net<span className="blinker" /></h3></Link>
+            </div>
+            <div className="col-sm-3 pull-right">
                 <h3><a id="login">Login</a></h3>
-            </Col>
-        </Row>;
+            </div>
+        </div>;
     }
 } 
