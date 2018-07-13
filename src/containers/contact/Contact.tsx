@@ -32,17 +32,19 @@ export class ContactForm extends React.Component<ContactProps, any> {
         
         if (this.valide()) {
             contact.contact.verified = true;
-            this.props.submitContact(contact.contact);
+            // this.props.submitContact(contact.contact);
         }
-        else {
-            //NotificationSystem.; // .error('Invalid Captcha!', '', 2000);
-        }
+        // else {
+        //     // NotificationSystem.; // .error('Invalid Captcha!', '', 2000);
+        // }
 
     }
 
-    public onloadCallback() { }
+    public onloadCallback() { 
+        // test
+    }
 
-    public valide() {
+    public valide(): boolean {
         return captChaVerified;
     }
 
@@ -53,7 +55,7 @@ export class ContactForm extends React.Component<ContactProps, any> {
     public render() {
 
         return <OneColumnContentBody {...this.props} Title="Feel free to contact me.">
-            <Form model="contact" className="margin-top-30" onSubmit={(contact) => this.handleSubmit(contact)}>
+            <Form model="contact" className="margin-top-30" onSubmit={this.handleSubmit}>
                 <div className="row">
                     <div className="col-md-6">
                         <div className="form-group">

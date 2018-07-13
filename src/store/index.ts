@@ -1,5 +1,7 @@
 import * as Publication from './publications';
 import * as Contact from './contact';
+import * as ContactForm from '../store/contact'
+import { combineForms } from 'react-redux-form';
 
 // The top-level state object
 export interface IApplicationState {
@@ -11,6 +13,8 @@ export interface IApplicationState {
 // the reducer with the matching name. It's important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
+    contacReducer: ContactForm.reducer,
+    contact: combineForms({ contact: ContactForm.unloadedState }),
     publications: Publication.reducer
 };
 

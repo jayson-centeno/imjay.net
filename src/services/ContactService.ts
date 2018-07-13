@@ -18,11 +18,12 @@ export class ContactService implements IContactService {
 
     public SubmitContact(contact: IContactState) : AxiosPromise<any> {
         
-        var contactPost = {};
-        contactPost["name"] = contact.Name;
-        contactPost["email"] = contact.Email;
-        contactPost["message"] = contact.Message;
-        contactPost["verified"] = contact.Verified;
+        const contactPost = {
+            email : contact.Email,
+            message : contact.Message,
+            name : contact.Name,
+            verified : contact.Verified
+        };
 
         return axios.post('/api/contact/',
             contactPost,

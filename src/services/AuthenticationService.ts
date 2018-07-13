@@ -17,38 +17,41 @@ export interface IAuthenticationService {
 @injectable()
 export class AuthenticationService implements IAuthenticationService {
 
-    constructor() { }
-
     public getToken(Data: IAuthData): any {
-        var user = {};
-        user["email"] = Data.Email;
-        user["password"] = Data.Password;
-        return axios.post("api/token", user)
+        const user = {
+            email: Data.Email,
+            password: Data.Password
+        };
+        return axios.post("api/token", user);
     }
 
     public setAuthToken(token: string): void {
-        let localStorage = this.getLocalStorage();
+        const localStorage = this.getLocalStorage();
         if (localStorage)
+        {
             localStorage.setItem('jclite_jwtToken', token);
+        }
         else { 
-            let tokenElement = document.getElementById('Token') as HTMLInputElement;
-            if (tokenElement != null)
+            const tokenElement = document.getElementById('Token') as HTMLInputElement;
+            if (tokenElement != null) {
                 tokenElement.value = token;
+            }
         } 
     }
 
     public getAuthToken(): string | null {
 
         let token: string | null = "";
-        let tokenElement = document.getElementById('Token') as HTMLInputElement;
+        const tokenElement = document.getElementById('Token') as HTMLInputElement;
 
-        if (tokenElement)
+        if (tokenElement) {
             token = tokenElement.value
-        else {
+        } else {
 
-            let localStorage = this.getLocalStorage();
-            if (localStorage)
+            const localStorage = this.getLocalStorage();
+            if (localStorage) {
                 token = localStorage.getItem('jclite_jwtToken');
+            }
         }
 
         return token;
@@ -57,7 +60,7 @@ export class AuthenticationService implements IAuthenticationService {
     public getLocalStorage(): Storage | null {
         if (typeof window !== "undefined") {
             return window.localStorage;
-            //return localStorage.LocalStorage;
+            // return localStorage.LocalStorage;
         } else {
             return null;
         }
@@ -73,11 +76,13 @@ export class AuthenticationService implements IAuthenticationService {
 
     public getCaptchaKey(): string | undefined {
 
-        if (typeof window === 'undefined') return '';
+        if (typeof window === 'undefined') { return '' };
 
-        let captchaKeyElement = document.getElementById('CaptchaKey') as HTMLInputElement;
+        const captchaKeyElement = document.getElementById('rkey') as HTMLInputElement;
         if (captchaKeyElement != null)
+        {
             return captchaKeyElement.value;
+        }
 
         return '';
 

@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import * as PublicationStore from '../../store/Publications';
+import * as PublicationStore from '../../store/publications';
 
 type PublicationProps = PublicationStore.IPublicationsState;
  

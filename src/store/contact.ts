@@ -26,12 +26,12 @@ export const actionCreators = {
 
     submitContact: (contact: IContactState): IAppThunkAction<KnownAction> => (dispatch) => {
 
-        let service = DIContainer.get<IContactService>("IContactService");
+        const service = DIContainer.get<IContactService>("IContactService");
         service.SubmitContact(contact)
                 .then(response => {
                     const data = response.data as boolean;
-                        dispatch({ type: 'RECEIVED_CONTACT', valid: data });
-        });
+                    dispatch({ type: 'RECEIVED_CONTACT', valid: data });
+                });
 
         dispatch({ type: 'SUBMIT_CONTACT' });
     }
@@ -45,19 +45,19 @@ export const reducer: Reducer<IContactState> = (state: IContactState, incomingAc
     switch (action.type) {
         case 'SUBMIT_CONTACT':
             return {
-                Name: state.Name,
                 Email: state.Email,
                 Message: state.Message,
-                Verified: state.Verified,
-                Valid: state.Valid
+                Name: state.Name,
+                Valid: state.Valid,
+                Verified: state.Verified
             };
         case 'RECEIVED_CONTACT':
             return {
-                Name: state.Name,
                 Email: state.Email,
                 Message: state.Message,
-                Verified: state.Verified,
-                Valid: state.Valid
+                Name: state.Name,
+                Valid: state.Valid,
+                Verified: state.Verified
             };
 
     }
