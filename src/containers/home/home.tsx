@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from 'react-router-dom';
 import { Publication } from "../publication/Publication";
-import * as PublicationStore from '../../store/Publications'
+import * as PublicationStore from '../../store/Publications';
 
 import { TwoColumnContentBody } from '../../components/master-layout/TwoColumnContentBody';
 type PublicationProps = PublicationStore.IPublicationsState & typeof PublicationStore.actionCreators & RouteComponentProps<{}>;

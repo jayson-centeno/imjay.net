@@ -11,48 +11,44 @@ export interface IAuthenticationService {
     setAuthToken(token: string): void;
     getAuthToken(): string | null;
     getAuthHeader(): any;
+    getCaptchaKey(): string | undefined;
 }
 
 @injectable()
 export class AuthenticationService implements IAuthenticationService {
 
+    constructor() { }
+
     public getToken(Data: IAuthData): any {
-
-        const user:any = { 
-            email: Data.Email, 
-            password:  Data.Password       
-        };
-
+        var user = {};
+        user["email"] = Data.Email;
+        user["password"] = Data.Password;
         return axios.post("api/token", user)
     }
 
     public setAuthToken(token: string): void {
-        const localStorage = this.getLocalStorage();
-        if (localStorage) {
-            localStorage.setItem('jcodes_jwtToken', token);
-        }
+        let localStorage = this.getLocalStorage();
+        if (localStorage)
+            localStorage.setItem('jclite_jwtToken', token);
         else { 
-            const tokenElement = document.getElementById('Token') as HTMLInputElement;
-            if (tokenElement != null){
+            let tokenElement = document.getElementById('Token') as HTMLInputElement;
+            if (tokenElement != null)
                 tokenElement.value = token;
-            }
         } 
     }
 
     public getAuthToken(): string | null {
 
         let token: string | null = "";
-        const tokenElement = document.getElementById('Token') as HTMLInputElement;
+        let tokenElement = document.getElementById('Token') as HTMLInputElement;
 
-        if (tokenElement){
+        if (tokenElement)
             token = tokenElement.value
-        }
         else {
 
-            const localStorage = this.getLocalStorage();
-            if (localStorage) {
-                token = localStorage.getItem('jcodes_jwtToken');
-            }
+            let localStorage = this.getLocalStorage();
+            if (localStorage)
+                token = localStorage.getItem('jclite_jwtToken');
         }
 
         return token;
@@ -60,7 +56,8 @@ export class AuthenticationService implements IAuthenticationService {
 
     public getLocalStorage(): Storage | null {
         if (typeof window !== "undefined") {
-            return window.localStorage; // return localStorage.LocalStorage;
+            return window.localStorage;
+            //return localStorage.LocalStorage;
         } else {
             return null;
         }
@@ -72,6 +69,18 @@ export class AuthenticationService implements IAuthenticationService {
                 "Authorization": this.getAuthToken()
             }
         }
+    }
+
+    public getCaptchaKey(): string | undefined {
+
+        if (typeof window === 'undefined') return '';
+
+        let captchaKeyElement = document.getElementById('CaptchaKey') as HTMLInputElement;
+        if (captchaKeyElement != null)
+            return captchaKeyElement.value;
+
+        return '';
+
     }
 
 }

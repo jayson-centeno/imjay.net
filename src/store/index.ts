@@ -1,8 +1,10 @@
-import * as Publication from './Publications';
+import * as Publication from './publications';
+import * as Contact from './contact';
 
 // The top-level state object
 export interface IApplicationState {
     publications: Publication.IPublicationsState;
+    contact: Contact.IContactState;
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using

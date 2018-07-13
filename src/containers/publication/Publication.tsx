@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import * as PublicationStore from '../../store/Publications'
+import * as PublicationStore from '../../store/Publications';
 
 type PublicationProps = PublicationStore.IPublicationsState;
  
@@ -19,7 +19,7 @@ export class Publication extends React.Component<PublicationProps, {}> {
         }
         else {
             return [];
-        } 
+        }
     }
      
     public render() {

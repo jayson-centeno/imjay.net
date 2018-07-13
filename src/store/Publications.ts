@@ -33,15 +33,12 @@ export const actionCreators = {
         const service = container.get<IPublicationService>("IPublicationService");
         const fetchTask = service.getPublications()
             .then(response => {
-
                 const data = response.data as IPublication[];
                 dispatch({ type: 'ReceivePublications', publications: data }); 
-
             });
 
         addTask(fetchTask);
         dispatch({ type: 'FetchPublications' });
-
     }
 
 }
