@@ -55,7 +55,7 @@ export class ContactForm extends React.Component<ContactProps, any> {
     public render() {
 
         return <OneColumnContentBody {...this.props} Title="Feel free to contact me.">
-            <Form model="contact" className="margin-top-30" onSubmit={this.handleSubmit}>
+            <Form model="contact" onSubmit={this.handleSubmit}>
                 <div className="row">
                     <div className="col-md-6">
                         <div className="form-group">

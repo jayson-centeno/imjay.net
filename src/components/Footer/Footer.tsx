@@ -51,7 +51,7 @@ export class Footer extends React.Component<any, any> {
                                     </span>
                                     <ul id="explore" className="margin-top-10">
                                         <li>
-                                            <a className="link">Works</a>
+                                            <Link className="link" to="/works">Works</Link>
                                         </li>
                                         <li>
                                             <a className="link">Tools</a>
