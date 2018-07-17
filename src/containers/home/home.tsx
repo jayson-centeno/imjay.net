@@ -17,10 +17,10 @@ class Home extends React.Component<PublicationProps, {}> {
             </Helmet>
             <div className="container">
                 <div className="row margin-bottom-200">
-                    <div className="col-sm-5">
+                    <div className="col-sm-6">
                         <h1 className="main-title">Jayson is a Passionate Senior .Net & Front-End Developer</h1>
                     </div>
-                    <div className="col-sm-7">
+                    <div className="col-sm-6">
                         <div id="profile-pic" />
                     </div>
                 </div>
