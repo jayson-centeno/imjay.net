@@ -5,12 +5,12 @@ export class Footer extends React.Component<any, any> {
 
     public render() {
         return <div>
-            <div className='footer margin-bottom-60 margin-top-30'>
+            <div className='footer margin-bottom-120 margin-top-50'>
 
                 <div className='container'>
                     <div className="row">
                         <div className="col-sm-5 margin-top-10">
-                            <h3 className="logo-text">{'\{ '} ImJay.Net<span className="blinker" />{' \}'}</h3>
+                            <h3 className="logo-text">Thank you for stopping by!<span className="blinker" /></h3>
 
                             <div className="row margin-top-30">
 
@@ -51,10 +51,13 @@ export class Footer extends React.Component<any, any> {
                                     </span>
                                     <ul id="explore" className="margin-top-10">
                                         <li>
-                                            <a className="link">Web Tools</a>
+                                            <a className="link">Works</a>
                                         </li>
                                         <li>
-                                            <Link className="link" to="/">Tutorials and Publications</Link>
+                                            <a className="link">Tools</a>
+                                        </li>
+                                        <li>
+                                            <Link className="link" to="/">Publications</Link>
                                         </li>
                                         <li>
                                             <Link className="link" to="/about">About</Link>
@@ -85,7 +88,7 @@ export class Footer extends React.Component<any, any> {
                             @2018-2019 <span className="highlight">www.imjay.net</span>. All Rights Reserved
                         </div>
                         <div className="col-sm-7">
-                            Powered by <span className="highlight">.Net Core, NodeJs, Typescript, React-Redux, Sql Server</span>
+                            Powered by <span className="highlight">.Net Core, API, NodeJs, Typescript, Reactjs, Sql Server</span>
                         </div>
                     </div>
                 </div>

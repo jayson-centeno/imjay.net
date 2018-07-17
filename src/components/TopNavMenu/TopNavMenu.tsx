@@ -15,30 +15,30 @@ export class TopNavMenu extends React.Component<{}, {}> {
                 </div>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                 <ul className="nav navbar-nav">
+                <ul className="nav navbar-nav">
                     <li>
-                        {'{'}<NavLink exact={true} className="bracket" activeClassName='active' to="/">
-                            <span className='fa fa-home' /> HOME
-                        </NavLink> ||
+                        <NavLink exact={true} className="nav-item" activeClassName='active' to="/">
+                            <span className='fa fa-home' />HOME
+                        </NavLink>
                     </li>
                     <li>
-                        <NavLink className="bracket" activeClassName='active' to="/about">ABOUT</NavLink> ||
+                        <NavLink className="nav-item" activeClassName='active' to="/contact">SAY HELLO</NavLink>
                     </li>
                     <li>
-                        <NavLink className="bracket" activeClassName='active' to="/contact">SAY HELLO</NavLink> ||
+                        <a href="#" className="nav-item">WORKS</a>
                     </li>
                     <li>
-                        <a href="#">RESUME</a> ||
+                        <a href="#" className="nav-item">TOOLS</a>
                     </li>
                     <li>
-                        <a href="#">WEB TOOLS</a> ||
+                        <a href="#" className="nav-item">PUBLICATIONS</a>
                     </li>
                     <li>
-                        <a href="#">STACKOVERFLOW</a> ||
-                    </li> 
-                    <li> 
-                        <a href="#">LINKEDIN</a>  <span className="bracket">{'}'}</span>
-                    </li>
+                        <a href="#" className="nav-item">RESUME</a>
+                    </li>                                       
+                    <li>
+                        <NavLink className="nav-item" activeClassName='active' to="/about">ABOUT</NavLink> 
+                    </li>                    
                 </ul> 
             </div>
         </nav>;

@@ -16,7 +16,7 @@ class Home extends React.Component<PublicationProps, {}> {
                 <title>Jayson Centeno Personal Website</title>
             </Helmet>
             <div className="container">
-                <div className="row margin-bottom-250">
+                <div className="row margin-bottom-200">
                     <div className="col-sm-5">
                         <h1 className="main-title">Jayson is a Passionate Senior .Net & Front-End Developer</h1>
                     </div>
@@ -45,7 +45,7 @@ class Home extends React.Component<PublicationProps, {}> {
                         <div className="row">
                             <div className="col-sm-6">
                                 <p className="mid-text">
-                                    ASP.Net <br />
+                                    .NET, ASP.NET <br />
                                     Front-End Development
                                 </p>
                             </div>

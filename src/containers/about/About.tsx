@@ -9,9 +9,10 @@ type AboutProps = ITitleProps & RouteComponentProps<any>;
 export default class About extends React.Component<AboutProps, {}> {
 
     public render() {
-        return <OneColumnContentBody {...this.props} Title="About">
+        return <OneColumnContentBody {...this.props} Title="About Me">
             <Helmet>
                 <title>About Jayson Centeno</title>
+                <meta content="About Jayson Centeno, personal website, tools, publications" name="keywords" />
             </Helmet>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, 
