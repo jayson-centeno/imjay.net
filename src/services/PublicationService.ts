@@ -1,6 +1,7 @@
 ﻿import axios, { AxiosPromise } from "axios";
 import { inject, injectable,  } from 'inversify'
 import { IAuthenticationService } from "./AuthenticationService"
+import Config from '../config'
 
 export interface IPublicationService {
     getPublications():AxiosPromise<any>
@@ -16,8 +17,10 @@ export class PublicationService implements IPublicationService
     }
 
     public getPublications(): AxiosPromise<any> {
-        return axios.get('/api/publications/GetPublications', {
+        return axios.get(Config.API_URL + 'publications/getpublications/', {
             headers: {
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+                'Access-Control-Allow-Origin': '*',
                 "Authorization": "Bearer " + this.authenticationService.getAuthToken()
             }
         });

@@ -1,9 +1,12 @@
 import "font-awesome/css/font-awesome.min.css"
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/index.css';
+import './di/bootstrap';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import DIContainer from './di/bootstrap'
+import { IAuthenticationService } from './services/AuthenticationService';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
@@ -12,12 +15,32 @@ import { IApplicationState }  from './store';
 import { ConnectedRouter } from 'connected-react-router'
 import App from './App';
 import { routes } from './routes';
+import Config from './config';
 
 const history = createBrowserHistory();
 
 // Get the application-wide store instance, prepopulating with state from the server where available.
 const initialState = (window as any).initialReduxState as IApplicationState;
 const store = configureStore(history, initialState);
+
+function registerAuth(){
+
+    const authenticationService = DIContainer.get<IAuthenticationService>("IAuthenticationService");
+    const request = authenticationService.getToken({
+        Email: Config.API_AUTH_USERNAME,
+        Password: Config.API_AUTH_PASSWORD
+    });
+
+    request.then(response => {
+        const tElement = document.getElementById('t') as HTMLInputElement;
+        tElement.value = response.data.token;
+
+        renderApp();
+    }).catch(err => {
+        throw err;
+    });
+
+}
 
 function renderApp() {
     // This code starts up the React app when it runs in a browser. It sets up the routing configuration
@@ -36,7 +59,10 @@ function renderApp() {
     registerServiceWorker();
 }
 
-renderApp();
+registerAuth()
+
+
+
 
 // // Allow Hot Module Replacement
 // if (module.hot) {

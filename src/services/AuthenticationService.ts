@@ -1,5 +1,7 @@
 ﻿import axios from "axios"
+import {AxiosPromise } from "axios"
 import { injectable } from "inversify"
+import Config from '../config'
 
 export interface IAuthData { 
     Email: string
@@ -7,7 +9,7 @@ export interface IAuthData {
 }
 
 export interface IAuthenticationService {
-    getToken(Data: IAuthData): any;
+    getToken(Data: IAuthData): AxiosPromise<any>;
     setAuthToken(token: string): void;
     getAuthToken(): string | null;
     getAuthHeader(): any;
@@ -17,22 +19,30 @@ export interface IAuthenticationService {
 @injectable()
 export class AuthenticationService implements IAuthenticationService {
 
-    public getToken(Data: IAuthData): any {
+    public getToken(Data: IAuthData): AxiosPromise<any> {
         const user = {
-            email: Data.Email,
-            password: Data.Password
+            "Email": Data.Email,
+            "Password": Data.Password
         };
-        return axios.post("api/token", user);
+
+        const config =  {
+            headers: {
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
+        
+        return axios.post(Config.API_URL + "token/", user, config);
     }
 
     public setAuthToken(token: string): void {
         const localStorage = this.getLocalStorage();
         if (localStorage)
         {
-            localStorage.setItem('jclite_jwtToken', token);
+            localStorage.setItem('imjay_jwtToken', token);
         }
         else { 
-            const tokenElement = document.getElementById('Token') as HTMLInputElement;
+            const tokenElement = document.getElementById('t') as HTMLInputElement;
             if (tokenElement != null) {
                 tokenElement.value = token;
             }
@@ -42,7 +52,7 @@ export class AuthenticationService implements IAuthenticationService {
     public getAuthToken(): string | null {
 
         let token: string | null = "";
-        const tokenElement = document.getElementById('Token') as HTMLInputElement;
+        const tokenElement = document.getElementById('t') as HTMLInputElement;
 
         if (tokenElement) {
             token = tokenElement.value
@@ -50,7 +60,7 @@ export class AuthenticationService implements IAuthenticationService {
 
             const localStorage = this.getLocalStorage();
             if (localStorage) {
-                token = localStorage.getItem('jclite_jwtToken');
+                token = localStorage.getItem('imjay_jwtToken');
             }
         }
 

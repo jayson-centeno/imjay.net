@@ -9,8 +9,6 @@ import cvcheck from '../../assets/images/works/cvcheck.png';
 import hr360 from '../../assets/images/works/hr360.png';
 import wnw from '../../assets/images/works/wnw.png';
 import ipa from '../../assets/images/works/ipa.png';
-// import sg from '../../assets/images/works/sureglow.png';
-// import djm from '../../assets/images/works/djm.png';
 import magsaysay from '../../assets/images/works/magsaysay.png';
 import wp from '../../assets/images/works/workplus.png';
 import infomax from '../../assets/images/works/infomax.png';
@@ -108,7 +106,7 @@ export default class Works extends React.Component<WorksProps, {}> {
                         </div>
                     </div>
                     <div className="tag">ASP.Net</div>
-                    <div className="tag">Webfoms</div>
+                    <div className="tag">Webforms</div>
                     <div className="tag">MVP</div>
                     <div className="tag">JQUERY</div>
                 </Col>

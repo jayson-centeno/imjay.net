@@ -127,7 +127,7 @@ input.form-control, textarea.form-control { background-color: #eee; }
 .notification-info { background-color: #000000; }
 
 
-.works img { background-color: #fff; display: block; max-width: 100%; height: 300px;  border-radius: 10px; }
+.works img { background-color: #fff; display: block; max-width: 100%; height: 300px;  border-radius: 2px; }
 .works img:hover { box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5) }
 
 .hovereffect {

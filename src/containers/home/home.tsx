@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from 'react-router-dom';
 import { Publication } from "../publication/Publication";
-import * as PublicationStore from '../../store/Publications';
+import * as PublicationStore from '../../store/publications';
 
 import { TwoColumnContentBody } from '../../components/master-layout/TwoColumnContentBody';
+import { IApplicationState } from '../../store';
 type PublicationProps = PublicationStore.IPublicationsState & typeof PublicationStore.actionCreators & RouteComponentProps<{}>;
 
 class Home extends React.Component<PublicationProps, {}> {
+
+    public componentDidMount() {
+        this.props.fetchPublications();
+    }
 
     public render() {
         return <div>
@@ -68,4 +73,7 @@ class Home extends React.Component<PublicationProps, {}> {
     }
 }
 
-export default connect()(Home);
+export default connect(
+    (state: IApplicationState) => state.publications,
+    PublicationStore.actionCreators
+)(Home);
