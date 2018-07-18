@@ -26,19 +26,27 @@ const store = configureStore(history, initialState);
 function registerAuth(){
 
     const authenticationService = DIContainer.get<IAuthenticationService>("IAuthenticationService");
-    const request = authenticationService.getToken({
-        Email: Config.API_AUTH_USERNAME,
-        Password: Config.API_AUTH_PASSWORD
-    });
+    const token = authenticationService.getAuthToken();
 
-    request.then(response => {
-        const tElement = document.getElementById('t') as HTMLInputElement;
-        tElement.value = response.data.token;
+    if(token !== null) {
 
         renderApp();
-    }).catch(err => {
-        throw err;
-    });
+        
+    } else {
+
+        const request = authenticationService.getToken({
+            Email: Config.API_AUTH_USERNAME,
+            Password: Config.API_AUTH_PASSWORD
+        });
+    
+        request.then(response => {
+            authenticationService.setAuthToken(response.data.token);
+            renderApp();
+        }).catch(err => {
+            throw err;
+        });
+
+    }
 
 }
 

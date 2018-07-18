@@ -52,15 +52,17 @@ export class AuthenticationService implements IAuthenticationService {
     public getAuthToken(): string | null {
 
         let token: string | null = "";
-        const tokenElement = document.getElementById('t') as HTMLInputElement;
 
-        if (tokenElement) {
-            token = tokenElement.value
+        const localStorage = this.getLocalStorage();
+        if (localStorage) {
+
+            token = localStorage.getItem('imjay_jwtToken');
+            
         } else {
 
-            const localStorage = this.getLocalStorage();
-            if (localStorage) {
-                token = localStorage.getItem('imjay_jwtToken');
+            const tokenElement = document.getElementById('t') as HTMLInputElement;
+            if (tokenElement && tokenElement.value !== '') {
+                token = tokenElement.value
             }
         }
 
