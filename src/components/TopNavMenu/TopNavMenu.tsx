@@ -32,13 +32,13 @@ export class TopNavMenu extends React.Component<{}, {}> {
                     </li>
                     <li>
                         <a href="#" className="nav-item">PUBLICATIONS</a>
-                    </li>
+                    </li> 
                     <li>
-                        <a href="#" className="nav-item">RESUME</a>
-                    </li>                                       
+                        <a href="#" className="nav-item">SITE INFO</a>
+                    </li>            
                     <li>
                         <NavLink className="nav-item" activeClassName='active' to="/about">ABOUT</NavLink> 
-                    </li>                    
+                    </li>                            
                 </ul> 
             </div>
         </nav>;

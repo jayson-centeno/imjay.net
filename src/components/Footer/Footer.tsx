@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 export class Footer extends React.Component<any, any> {
 
+    public getDate(): string {
+        return new Date().getFullYear().toString();
+    }
+
     public render() {
         return <div>
             <div className='footer margin-bottom-120 margin-top-50'>
@@ -85,10 +89,10 @@ export class Footer extends React.Component<any, any> {
                 <div className='container'>
                     <div className="row">
                         <div className="col-sm-5">
-                            @2018-2019 <span className="highlight">www.imjay.net</span>. All Rights Reserved
+                            Copyright @{this.getDate()} <a  className="highlight" href="/">www.imjay.net</a>
                         </div>
                         <div className="col-sm-7">
-                            Powered by <span className="highlight">.Net Core, API, NodeJs, Typescript, Reactjs, Sql Server</span>
+                            Powered by <span className="highlight">.Net Core, API, NodeJs, Typescript, Reactjs, Sql</span>
                         </div>
                     </div>
                 </div>

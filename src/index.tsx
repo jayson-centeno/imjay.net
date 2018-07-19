@@ -28,20 +28,26 @@ function registerAuth(){
     const authenticationService = DIContainer.get<IAuthenticationService>("IAuthenticationService");
     const token = authenticationService.getAuthToken();
 
-    if(token !== null) {
+    if(token !== null && token !== "") {
 
         renderApp();
         
     } else {
 
-        const request = authenticationService.getToken({
+        const request = authenticationService.getTokenFromDb({
             Email: Config.API_AUTH_USERNAME,
             Password: Config.API_AUTH_PASSWORD
         });
     
         request.then(response => {
-            authenticationService.setAuthToken(response.data.token);
+
+            authenticationService.setAuthToken({
+                TimeStamp: new Date(response.data.expiration).getTime(),
+                Token: response.data.token
+            });
+
             renderApp();
+
         }).catch(err => {
             throw err;
         });

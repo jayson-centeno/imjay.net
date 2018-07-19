@@ -1,7 +1,8 @@
-﻿import axios, { AxiosPromise } from "axios";
+﻿import { AxiosPromise } from "axios";
 import { inject, injectable,  } from 'inversify'
 import { IAuthenticationService } from "./AuthenticationService"
-import Config from '../config'
+import Config from '../config';
+import { IHttpHelper } from './HttpHelper';
 
 export interface IPublicationService {
     getPublications():AxiosPromise<any>
@@ -11,18 +12,18 @@ export interface IPublicationService {
 export class PublicationService implements IPublicationService
 {
     private authenticationService: IAuthenticationService;
+    private httpHelper: IHttpHelper;
 
-    constructor( @inject("IAuthenticationService") authenticationService: IAuthenticationService) {
+    constructor( @inject("IAuthenticationService") authenticationService: IAuthenticationService, @inject("IHttpHelper") httpHelper:IHttpHelper) {
         this.authenticationService = authenticationService;
+        this.httpHelper = httpHelper;
     }
 
     public getPublications(): AxiosPromise<any> {
-        return axios.get(Config.API_URL + 'publications/getpublications/', {
+        return this.httpHelper.Get(Config.API_URL + 'publications/getpublications/', {
             headers: {
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
-                'Access-Control-Allow-Origin': '*',
                 "Authorization": "Bearer " + this.authenticationService.getAuthToken()
             }
         });
     }
-} 
+}
