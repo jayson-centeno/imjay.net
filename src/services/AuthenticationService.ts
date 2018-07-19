@@ -72,31 +72,44 @@ export class AuthenticationService implements IAuthenticationService {
 
         if(tempToken !== null)
         {
-            const tokenData = JSON.parse(tempToken) as ITokenData;
-            const isActive = new Date(tokenData.TimeStamp).getTime() >= new Date().getTime();
+            let tokenData : ITokenData;
 
-            if(isActive){
-                tempToken = tokenData.Token
-            } else {
-                
-                tempToken = null;
+            try{
 
-                if(localStorage !== null){
-                    localStorage.removeItem(Config.TOKEN_KEY);
+                tokenData = JSON.parse(tempToken) as ITokenData;
+                const isActive = new Date(tokenData.TimeStamp).getTime() >= new Date().getTime();
+
+                if(isActive){
+                    tempToken = tokenData.Token
                 } else {
 
-                    const tokenElement = document.getElementById(Config.TOKEN_ELEMENT_ID) as HTMLInputElement;
-                    if(tokenElement !== null){
-                        tokenElement.value = "";
-                    }
-                        
+                    tempToken = null;
+                    this.ClearToken();
+
                 }
-                
+
+            } catch(e){
+                tempToken = null;
+                this.ClearToken();
             }
-                
+   
         }
 
         return tempToken;
+    }
+
+    public ClearToken(): void {
+
+        const localStorage = this.getLocalStorage();
+
+        if(localStorage !== null){
+            localStorage.removeItem(Config.TOKEN_KEY);
+        } else {
+            const tokenElement = document.getElementById(Config.TOKEN_ELEMENT_ID) as HTMLInputElement;
+            if(tokenElement !== null){
+                tokenElement.value = "";
+            }
+        }
     }
 
     public getLocalStorage(): Storage | null {
