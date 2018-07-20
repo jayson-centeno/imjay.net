@@ -75,9 +75,6 @@ function renderApp() {
 
 registerAuth()
 
-
-
-
 // // Allow Hot Module Replacement
 // if (module.hot) {
 //     module.hot.accept('./routes', () => {

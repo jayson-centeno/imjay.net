@@ -19,6 +19,7 @@
     "connected-react-router": "^4.3.0",
     "domain-task": "^3.0.3",
     "font-awesome": "^4.7.0",
+    "ftp-deploy": "^2.1.2",
     "history": "^4.7.2",
     "inversify": "^4.13.0",
     "react": "^16.4.1",
@@ -42,7 +43,8 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "deploy": "node deploy"
   },
   "devDependencies": {
     "@types/jest": "^23.1.5",
