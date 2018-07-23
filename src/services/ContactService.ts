@@ -1,7 +1,9 @@
-﻿import axios, { AxiosPromise } from 'axios';
+﻿import { AxiosPromise } from 'axios';
 import { injectable, inject } from 'inversify'
-import { IAuthenticationService } from "./AuthenticationService"
-import { IContactState } from '../store/Contact'
+import { IAuthenticationService } from "./AuthenticationService";
+import { IContactState } from '../store/Contact';
+import { IHttpHelper } from './HttpHelper';
+import Config from '../config';
 
 export interface IContactService {
     SubmitContact(contact: IContactState) : AxiosPromise<any>;
@@ -11,9 +13,14 @@ export interface IContactService {
 export class ContactService implements IContactService {
 
     private authenticationService: IAuthenticationService;
+    private httpHelper : IHttpHelper;
 
-    constructor(@inject("IAuthenticationService") authenticationService: IAuthenticationService) {
+    constructor(@inject("IAuthenticationService") authenticationService: IAuthenticationService,
+                @inject("IHttpHelper") httpHelper: IHttpHelper) {
+
         this.authenticationService = authenticationService;
+        this.httpHelper = httpHelper;
+
     }
 
     public SubmitContact(contact: IContactState) : AxiosPromise<any> {
@@ -25,13 +32,15 @@ export class ContactService implements IContactService {
             verified : contact.Verified
         };
 
-        return axios.post('/api/contact/',
-            contactPost,
-            {
-                headers: {
-                    "Authorization": "Bearer " + this.authenticationService.getAuthToken()
-            }
-        });
+        return this.httpHelper.Post(Config.API_URL + "contact/", contactPost, this.authenticationService.getAuthHeader())
+
+        // return axios.post('/api/contact/',
+        //     contactPost,
+        //     {
+        //         headers: {
+        //             "Authorization": "Bearer " + this.authenticationService.getAuthToken()
+        //     }
+        // });
 
     }
 

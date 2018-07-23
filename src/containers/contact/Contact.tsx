@@ -22,6 +22,7 @@ export class ContactForm extends React.Component<ContactProps, any> {
     public constructor(props: ContactProps) {
         super(props);
         this.authenticationService = DIContainer.get<IAuthenticationService>("IAuthenticationService");
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     public componentDidMount() {
@@ -30,21 +31,23 @@ export class ContactForm extends React.Component<ContactProps, any> {
 
     public handleSubmit(contact: any) {
         
-        if (this.valide()) {
-            contact.contact.verified = true;
-            // this.props.submitContact(contact.contact);
+        if (this.validate()) {
+            // contact.contact.Verified = true;
+            this.props.submitContact(contact.contact);
         }
-        // else {
-        //     // NotificationSystem.; // .error('Invalid Captcha!', '', 2000);
-        // }
+ 
+    }
 
+    public DisplayMessage() : string
+    {
+        return this.state.Message;
     }
 
     public onloadCallback() { 
         // test
     }
 
-    public valide(): boolean {
+    public validate(): boolean {
         return captChaVerified;
     }
 
@@ -53,9 +56,9 @@ export class ContactForm extends React.Component<ContactProps, any> {
     }
 
     public render() {
-
+        
         return <OneColumnContentBody {...this.props} Title="Feel free to contact me.">
-            <Form model="contact" onSubmit={this.handleSubmit}>
+            <Form model="contact" onSubmit={this.handleSubmit} >
                 <div className="row">
                     <div className="col-md-6">
                         <div className="form-group">
@@ -104,6 +107,6 @@ export class ContactForm extends React.Component<ContactProps, any> {
 }
 
 export default connect(
-    (state: IApplicationState) => state.contact,
-    ContactStore.actionCreators
+    (state: IApplicationState) => state.contact, // map state to props
+    ContactStore.actionCreators // map dispatch to props
 )(ContactForm)

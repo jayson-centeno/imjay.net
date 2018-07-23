@@ -4,15 +4,14 @@ import { RouteComponentProps } from 'react-router-dom'
 export interface IContentBodyExtendedProps {
     Title: string,
     CustomRootClass?: string,
-    Active?:true
+    Active?:true,
+    message?: string
 }
 
 type ContentBodyProps = IContentBodyExtendedProps & RouteComponentProps<{}>;
 
 export class ContentBody extends React.Component<ContentBodyProps, any> {
-
     public render() {
-
         return <div className={`publication ${this.props.CustomRootClass}`}>
                 <div className="hex" />
                 <div className="container relative">
@@ -25,5 +24,4 @@ export class ContentBody extends React.Component<ContentBodyProps, any> {
                 <div className="hex-invert" />
         </div>
     }
-
 }

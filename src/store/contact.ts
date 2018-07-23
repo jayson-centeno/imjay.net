@@ -2,13 +2,14 @@
 import { IAppThunkAction } from './index';
 import DIContainer from '../di/bootstrap';
 import { IContactService } from '../services/ContactService';
+import * as HeaderMessage from '../store/headerMessage'
 
 export interface IContactState {
     Name: string,
     Email: string,
     Message: string,
     Verified: boolean,
-    Valid: boolean
+    Valid: boolean,
 }
 
 interface IContactFormSubmitAction {
@@ -20,7 +21,7 @@ interface IContactFormReceiveContactAction {
     valid: boolean
 };
 
-type KnownAction = IContactFormSubmitAction | IContactFormReceiveContactAction;
+type KnownAction = IContactFormSubmitAction | IContactFormReceiveContactAction | HeaderMessage.IAddHeaderMessageAction;
 
 export const actionCreators = {
 
@@ -28,17 +29,19 @@ export const actionCreators = {
 
         const service = DIContainer.get<IContactService>("IContactService");
         service.SubmitContact(contact)
-                .then(response => {
-                    const data = response.data as boolean;
-                    dispatch({ type: 'RECEIVED_CONTACT', valid: data });
-                });
+            .then(response => {
+                const data = response.data as boolean;
+                
+                dispatch({ type: 'RECEIVED_CONTACT', valid: data });
+                dispatch({ type: 'ADD_HEADER_MESSAGE', message: { Message: 'success', Type:'success' } });
+            });
 
         dispatch({ type: 'SUBMIT_CONTACT' });
     }
-    
+
 };
 
-export const unloadedState: IContactState = { Name: '', Email: '', Message: '', Verified:false, Valid:false }
+export const unloadedState: IContactState = { Name: '', Email: '', Message: '', Verified: false, Valid: false }
 export const reducer: Reducer<IContactState> = (state: IContactState, incomingAction: Action) => {
 
     const action = incomingAction as KnownAction;

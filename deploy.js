@@ -4,9 +4,9 @@ var ftpDeploy = new FtpDeploy();
 console.log(__dirname);
 
 const config = {
-    user: "",                   // NOTE that this was username in 1.x 
-    password: "",           // optional, prompted if none given
-    host: "",
+    user: "jcenteno-001",                   // NOTE that this was username in 1.x 
+    password: "Sw0rdf!sh",           // optional, prompted if none given
+    host: "ftp.smarterasp.net",
     port: 21,
     localRoot: __dirname + '/build',
     remoteRoot: '/jaytech/app/',

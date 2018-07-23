@@ -123,7 +123,7 @@ export class AuthenticationService implements IAuthenticationService {
     public getAuthHeader(): any {
         return {
             headers: {
-                "Authorization": this.getAuthToken()
+                "Authorization": "Bearer " + this.getAuthToken()
             }
         }
     }
