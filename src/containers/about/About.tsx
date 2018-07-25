@@ -8,7 +8,6 @@ import { Col, Row } from 'react-bootstrap';
 type AboutProps = ITitleProps & RouteComponentProps<any>;
 
 export default class About extends React.Component<AboutProps, {}> {
-
     public render() {
         return <OneColumnContentBody {...this.props} Title="About Me">
             <Helmet>
@@ -31,7 +30,7 @@ export default class About extends React.Component<AboutProps, {}> {
                     <br />
                     <p>
                         I have a hardwire desire to be better, an instinct for good architechtural designs and a strong ambition to make a difference on the web.
-                    </p>   
+                    </p>
                     <br />
                     <p>
                         My past time is to read good books and watch seminars about personal development and businesses.
@@ -44,12 +43,12 @@ export default class About extends React.Component<AboutProps, {}> {
             </Row>
             <Row>
                 <Col md={4}>
-                    <h1>
+                    <h2>
                         Look me up on...
-                    </h1>
+                    </h2>
                 </Col>
                 <Col md={8}>
-                    <ul className="connected margin-top-30">
+                    <ul className="connected margin-top-25">
                         <li>
                             <a className="link" href="https://plus.google.com/u/0/101946906278881143505"><i className="fa fa-google-plus" /></a>
                         </li>
@@ -62,7 +61,6 @@ export default class About extends React.Component<AboutProps, {}> {
                     </ul>
                 </Col>
             </Row>
-            
         </OneColumnContentBody>
     }
 }

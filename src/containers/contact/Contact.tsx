@@ -9,6 +9,7 @@ import * as Recaptcha from 'react-recaptcha';
 import { IAuthenticationService } from "../../services/AuthenticationService"
 import DIContainer from "../../di/bootstrap"
 import { IApplicationState } from '../../store';
+import { Col, Row, FormGroup, Button } from "react-bootstrap";
 
 type ContactProps = ITitleProps & ContactStore.IContactState & typeof ContactStore.actionCreators & RouteComponentProps<any>;
 
@@ -59,9 +60,9 @@ export class ContactForm extends React.Component<ContactProps, any> {
         
         return <OneColumnContentBody {...this.props} Title="Feel free to contact me.">
             <Form model="contact" onSubmit={this.handleSubmit} >
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="form-group">
+                <Row>
+                    <Col md={6}>
+                        <FormGroup>
                             <label>Name</label>
                             <Control.text model=".Name" className="form-control" placeholder="Enter Your Name" required={true} />
                             <Errors
@@ -72,30 +73,21 @@ export class ContactForm extends React.Component<ContactProps, any> {
                                     valueMissing: 'Name is required'
                                 }}
                             />
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="form-group">
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={6}>
+                        <FormGroup>
                             <label>Email</label>
-                            <Control type="email" model=".Email" required={true} className="form-control" placeholder="email@example.com" validateOn="blur"
-                            />
-                            <Errors
-                                className="errors"
-                                model=".Email"
-                                show="touched"
-                                messages={{
-                                    valueMissing: 'Email is required',
-                                    typeMismatch: 'Invalid email address'
-                                }}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="form-group">
+                            <Control type="email" model=".Email" required={true} className="form-control" placeholder="email@example.com" validateOn="blur" />
+                            <Errors className="errors" model=".Email" show="touched" messages={{ valueMissing: 'Email is required', typeMismatch: 'Invalid email address' }} />
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={6}>
+                        <FormGroup>
                             <label>Message</label>
                             <Control.textarea model=".Message" className="form-control" required={true} placeholder="Enter Your Message" />
                             <Errors
@@ -106,25 +98,25 @@ export class ContactForm extends React.Component<ContactProps, any> {
                                     valueMissing: 'Message is required'
                                 }}
                             />
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6 margin-top-10 margin-bottom-10">
-                        <div className="form-group">
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={6} className="margin-top-10 margin-bottom-10">
+                        <FormGroup>
                             <Recaptcha sitekey={this.authenticationService.getCaptchaKey()}
                                 ref={e => recaptchaInstance = e}
                                 onloadCallback={this.onloadCallback}
                                 verifyCallback={this.verifyCallback}
                                 render='explicit' />
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <button className="btn btn-default">Submit!</button>
-                    </div>
-                </div>
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={12}>
+                        <Button type="submit" className="btn btn-default">Submit!</Button>
+                    </Col>
+                </Row>
             </Form>
         </OneColumnContentBody>
 

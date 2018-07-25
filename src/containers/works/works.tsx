@@ -4,7 +4,6 @@ import { OneColumnContentBody } from '../../components/master-layout/OneColumnCo
 import { ITitleProps } from '../../common/Common';
 import { Helmet } from 'react-helmet'
 import { Row, Col } from 'react-bootstrap';
-
 import cvcheck from '../../assets/images/works/cvcheck.png';
 import hr360 from '../../assets/images/works/hr360.png';
 import wnw from '../../assets/images/works/wnw.png';
@@ -76,7 +75,7 @@ export default class Works extends React.Component<WorksProps, {}> {
                         <img src={ipa} className="img-responsive" />
                         <div className="overlay">
                             <h2>Institue of Public Accountants</h2>
-                            <a className="info" target="_blank" href="https://publicaccountants.org.au">View Site</a>
+                            <a className="info" target="_blank" href="https://www.publicaccountants.org.au/">View Site</a>
                         </div>
                     </div>
                     <div className="tag">CMS</div>

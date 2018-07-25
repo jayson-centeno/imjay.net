@@ -1,5 +1,6 @@
 ﻿import * as React from 'react';
 import * as PublicationStore from '../../store/publications';
+import { Col } from "react-bootstrap";
 
 type PublicationProps = PublicationStore.IPublicationsState;
  
@@ -24,11 +25,11 @@ export class Publication extends React.Component<PublicationProps, {}> {
      
     public render() {
         return <div className={this.props.isLoading ? "row hidden" : "row"}>
-            <div className="col-md-12">
+            <Col md={12}>
                 <ul className="pub-parent">
                     {this.renderPublications(this.props.publications)}
                 </ul>
-            </div>
+            </Col>
         </div>
     }
 }

@@ -4,9 +4,10 @@ import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from 'react-router-dom';
 import { Publication } from "../publication/Publication";
 import * as PublicationStore from '../../store/publications';
-
 import { TwoColumnContentBody } from '../../components/master-layout/TwoColumnContentBody';
 import { IApplicationState } from '../../store';
+import { Grid, Row, Col } from "react-bootstrap";
+
 type PublicationProps = PublicationStore.IPublicationsState & typeof PublicationStore.actionCreators & RouteComponentProps<{}>;
 
 class Home extends React.Component<PublicationProps, {}> {
@@ -20,18 +21,18 @@ class Home extends React.Component<PublicationProps, {}> {
             <Helmet>
                 <title>Jayson Centeno Personal Website</title>
             </Helmet>
-            <div className="container">
-                <div className="row margin-bottom-200">
-                    <div className="col-sm-6">
-                        <h1 className="main-title">Jayson is a Passionate Senior .Net & Front-End Developer</h1>
-                    </div>
-                    <div className="col-sm-6">
-                        <div id="profile-pic" />
-                    </div>
-                </div>
-                <div className="row">
 
-                    <div className="col-sm-7">
+            <Grid>
+                <Row className="margin-bottom-200">
+                    <Col sm={6}>
+                        <h1 className="main-title">Jayson is a Passionate Senior .Net & Front-End Developer</h1>
+                    </Col>
+                    <Col sm={6}>
+                        <div id="profile-pic" />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col sm={7}>
                         <h2 className="sub-title">About</h2>
                         <hr className="divider1" />
                         <hr className="divider2" />
@@ -41,29 +42,28 @@ class Home extends React.Component<PublicationProps, {}> {
                         <p className="mid-text">
                             Currently working as a FullStack Developer.
                         </p>
-                    </div>
-
-                    <div className="col-sm-5">
+                    </Col>
+                    <Col sm={5}>
                         <h2 className="sub-title">Specializing In</h2>
                         <hr className="divider1" />
                         <hr className="divider2" />
-                        <div className="row">
-                            <div className="col-sm-6">
+                        <Row>
+                            <Col sm={6}>
                                 <p className="mid-text">
                                     .NET, ASP.NET <br />
                                     Front-End Development
                                 </p>
-                            </div>
-                            <div className="col-sm-6">
+                            </Col>
+                            <Col sm={6}>
                                 <p className="mid-text">
                                     API <br />
                                     Research
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Grid>
             
             <TwoColumnContentBody {...this.props} Title="Publications on .Net and Front end" CustomRootClass="home">
                 <Publication isLoading={this.props.isLoading} publications={this.props.publications} />
