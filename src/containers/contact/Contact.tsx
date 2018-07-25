@@ -3,7 +3,7 @@ import { ITitleProps } from '../../common/Common'
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom'
 import { OneColumnContentBody } from '../../components/master-layout/OneColumnContentBody';
-import { Control, Form } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 import * as ContactStore from '../../store/contact';
 import * as Recaptcha from 'react-recaptcha';
 import { IAuthenticationService } from "../../services/AuthenticationService"
@@ -12,7 +12,7 @@ import { IApplicationState } from '../../store';
 
 type ContactProps = ITitleProps & ContactStore.IContactState & typeof ContactStore.actionCreators & RouteComponentProps<any>;
 
-let recaptchaInstance;
+let recaptchaInstance: Recaptcha | null;
 let captChaVerified: boolean = false;
 
 export class ContactForm extends React.Component<ContactProps, any> {
@@ -32,15 +32,15 @@ export class ContactForm extends React.Component<ContactProps, any> {
     public handleSubmit(contact: any) {
         
         if (this.validate()) {
-            // contact.contact.Verified = true;
-            this.props.submitContact(contact.contact);
-        }
- 
-    }
 
-    public DisplayMessage() : string
-    {
-        return this.state.Message;
+            this.props.submitContact(contact.contact);
+
+            if(recaptchaInstance !== null){
+                recaptchaInstance.reset();
+            }
+                
+        }
+  
     }
 
     public onloadCallback() { 
@@ -63,7 +63,15 @@ export class ContactForm extends React.Component<ContactProps, any> {
                     <div className="col-md-6">
                         <div className="form-group">
                             <label>Name</label>
-                            <Control.text model=".Name" className="form-control" placeholder="Enter Your Name" />
+                            <Control.text model=".Name" className="form-control" placeholder="Enter Your Name" required={true} />
+                            <Errors
+                                className="errors"
+                                model=".Name"
+                                show="touched"
+                                messages={{
+                                    valueMissing: 'Name is required'
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
@@ -71,7 +79,17 @@ export class ContactForm extends React.Component<ContactProps, any> {
                     <div className="col-md-6">
                         <div className="form-group">
                             <label>Email</label>
-                            <Control.text model=".Email" className="form-control" placeholder="Enter Your Email" />
+                            <Control type="email" model=".Email" required={true} className="form-control" placeholder="email@example.com" validateOn="blur"
+                            />
+                            <Errors
+                                className="errors"
+                                model=".Email"
+                                show="touched"
+                                messages={{
+                                    valueMissing: 'Email is required',
+                                    typeMismatch: 'Invalid email address'
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
@@ -79,7 +97,15 @@ export class ContactForm extends React.Component<ContactProps, any> {
                     <div className="col-md-6">
                         <div className="form-group">
                             <label>Message</label>
-                            <Control.textarea model=".Message" className="form-control" placeholder="Enter Your Message" />
+                            <Control.textarea model=".Message" className="form-control" required={true} placeholder="Enter Your Message" />
+                            <Errors
+                                className="errors"
+                                model=".Message"
+                                show="touched"
+                                messages={{
+                                    valueMissing: 'Message is required'
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

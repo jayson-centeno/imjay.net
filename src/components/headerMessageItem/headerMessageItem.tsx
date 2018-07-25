@@ -13,7 +13,7 @@ export default class HeaderItemMessage extends React.Component<HeaderItemMessage
 
     public render(){
         return (
-        <div className={classnames('alert', {
+        <div className={classnames('alert animated fadeIn', {
             'alert-success': this.props.Type === 'success',
             'alert-danger' : this.props.Type === 'error'
             })}>

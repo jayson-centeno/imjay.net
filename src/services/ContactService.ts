@@ -33,15 +33,5 @@ export class ContactService implements IContactService {
         };
 
         return this.httpHelper.Post(Config.API_URL + "contact/", contactPost, this.authenticationService.getAuthHeader())
-
-        // return axios.post('/api/contact/',
-        //     contactPost,
-        //     {
-        //         headers: {
-        //             "Authorization": "Bearer " + this.authenticationService.getAuthToken()
-        //     }
-        // });
-
     }
-
 }

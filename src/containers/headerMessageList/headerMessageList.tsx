@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import HeaderItemMessage, { IHeaderItemMessage } from '../../components/headerMessageItem/headerMessageItem';
-import * as HeaderMessage from "../../store/headerMessage";
 import { IApplicationState } from '../../store';
 
 export interface IHeaderMessageListState {
@@ -37,6 +36,5 @@ class HeaderMessageList extends React.Component<HeaderMessageListProps, any>
 }
 
 export default connect(
-    (state: IApplicationState) => state.headerMessages, // map state to props, 
-    HeaderMessage.actionCreators
+    (state: IApplicationState) => state.headerMessages
 )(HeaderMessageList);

@@ -232,6 +232,35 @@ input.form-control, textarea.form-control { background-color: #eee; }
 		margin-bottom: 5px;
 	}
 
+.errors {
+	font-size: 0.8rem;
+	color: #d57c7c;
+	margin-top: 0.25rem;
+	-webkit-animation: slide-down 0.3s backwards ease-in-out;
+	animation: slide-down 0.3s backwards ease-in-out;
+}
+
+.alert-success {
+    color: #f99325;
+    background-color: #1e1e1e;
+    border-color: #473f3f;
+}
+
+@-webkit-keyframes slide-down {
+	from {
+	  -webkit-transform: translateY(-50%);
+			  transform: translateY(-50%);
+	  opacity: 0;
+	}
+  }
+  @keyframes slide-down {
+	from {
+	  -webkit-transform: translateY(-50%);
+			  transform: translateY(-50%);
+	  opacity: 0;
+	}
+  }
+
 @media (max-width: 767px) {
 	.no-padding-left { padding-left: 15px; }
 }

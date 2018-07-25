@@ -14,6 +14,5 @@ export class TwoColumnContentBody extends React.Component<TwoColumnContentBodyPr
                 {this.props.children}
             </div>
         </ContentBody>
-
     }
 }

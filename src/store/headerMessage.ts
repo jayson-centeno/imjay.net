@@ -2,12 +2,13 @@ import { Action, Reducer } from 'redux'
 import { IHeaderItemMessage } from './../components/headerMessageItem/headerMessageItem'
 import { IHeaderMessageListState } from './../containers/headerMessageList/headerMessageList'
 import * as shortid from 'shortid'
+import * as Constants from '../common/Common'
 
 export const actionCreators = {
 
     addHeaderMessage(headerMessage: IHeaderItemMessage) {
         return {
-            type: "ADD_HEADER_MESSAGE",
+            type: Constants.ACTIONS.ADD_HEADER_MESSAGE,
             message: headerMessage
         }
     }
@@ -15,7 +16,7 @@ export const actionCreators = {
 }
 
 export interface IAddHeaderMessageAction {
-    type: 'ADD_HEADER_MESSAGE',
+    type: typeof Constants.ACTIONS.ADD_HEADER_MESSAGE,
     message: IHeaderItemMessage
 };
 
@@ -27,7 +28,7 @@ export const reducer: Reducer<IHeaderMessageListState> = (state: IHeaderMessageL
     const action = incommingAction as KnownAction;
 
     switch (action.type) {
-        case 'ADD_HEADER_MESSAGE':
+        case Constants.ACTIONS.ADD_HEADER_MESSAGE:
             return {
                 messages:
                     [
@@ -37,6 +38,10 @@ export const reducer: Reducer<IHeaderMessageListState> = (state: IHeaderMessageL
                             Message: action.message.Message
                         }]
             }
+        case Constants.ACTIONS.CLEAR_HEADER_MESSAGE:
+            return {
+                messages: []
+             }
     }
 
     return state || unloadedState;
