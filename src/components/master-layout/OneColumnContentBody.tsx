@@ -9,7 +9,7 @@ type OneColumnContentBodyProps = IContentBodyExtendedProps & RouteComponentProps
 export class OneColumnContentBody extends React.Component<OneColumnContentBodyProps>{
     public render() {
         return <ContentBody {...this.props} CustomRootClass="one-column">
-            <Col md={12} className="margin-bottom-40">
+            <Col md={12} className="margin-bottom-30">
                 <h1 className="main-title publication-title">{this.props.Title}</h1>
                 <Row>
                     <Col md={6}>

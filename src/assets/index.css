@@ -78,12 +78,12 @@ ul { margin: 0; padding: 0; }
 
 #explore li { padding: 7px 0; }
 
-#connected li { padding-right: 20px; }
-	#connected li a.link { float: left; padding-right: 20px; opacity: 0.7 }
-		#connected li a.link i.fa { font-size: 20pt; }
+.connected li { padding-right: 20px; }
+	.connected li a.link { float: left; padding-right: 20px; opacity: 0.7 }
+		.connected li a.link i.fa { font-size: 20pt; }
 
 .link { color: #f9c038; cursor: pointer; }
-	.link:hover, .link:active, .link:focus { color: #fff; opacity: 1 !important; text-decoration: none; }
+.link:hover, .link:active, .link:focus { color: #fff; opacity: 1 !important; text-decoration: none; }
 .link-list { font-size: 11pt; }
 .link-strong { font-size: 20pt; }
 
@@ -245,6 +245,8 @@ input.form-control, textarea.form-control { background-color: #eee; }
     background-color: #1e1e1e;
     border-color: #473f3f;
 }
+
+.emphasis{ font-weight:bolder; }
 
 @-webkit-keyframes slide-down {
 	from {

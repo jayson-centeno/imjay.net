@@ -24,15 +24,15 @@ export class Footer extends React.Component<any, any> {
                                         STAY CONNECTED
                                     </span>
 
-                                    <ul id="connected" className="margin-top-20">
+                                    <ul className="margin-top-20 connected">
                                         <li>
-                                            <a className="link" ><i className="fa fa-facebook" /></a>
+                                            <a className="link" href="https://plus.google.com/u/0/101946906278881143505"><i className="fa fa-google-plus" /></a>
                                         </li>
                                         <li>
-                                            <a className="link"><i className="fa fa-linkedin" /></a>
+                                            <a className="link" href="https://github.com/jayson-centeno"><i className="fa fa-git" /></a>
                                         </li>
                                         <li>
-                                            <a className="link"><i className="fa fa-google-plus" /></a>
+                                            <a className="link" href="https://www.linkedin.com/in/jayson-centeno-54419717"><i className="fa fa-linkedin" /></a>
                                         </li>
                                     </ul>
 
@@ -89,7 +89,7 @@ export class Footer extends React.Component<any, any> {
                 <div className='container'>
                     <div className="row">
                         <div className="col-sm-5">
-                            Copyright @{this.getDate()} <a  className="highlight" href="/">www.imjay.net</a>
+                            @{this.getDate()} <a  className="highlight" href="/">www.imjay.net</a>
                         </div>
                         <div className="col-sm-7">
                             Powered by <span className="highlight">.Net Core, API, NodeJs, Typescript, Reactjs, Sql</span>
