@@ -58,6 +58,9 @@ export default class About extends React.Component<AboutProps, {}> {
                         <li>
                             <a className="link" href="https://www.linkedin.com/in/jayson-centeno-54419717"><i className="fa fa-linkedin" /></a>
                         </li>
+                        <li>
+                            <a className="link" href="https://stackoverflow.com/users/1631816/jayson-centeno"><i className="fa fa-stack-overflow" /></a>
+                        </li>
                     </ul>
                 </Col>
             </Row>

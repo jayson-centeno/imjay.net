@@ -23,6 +23,7 @@
     "domain-task": "^3.0.3",
     "font-awesome": "^4.7.0",
     "ftp-deploy": "^2.1.2",
+    "guid-typescript": "^1.0.7",
     "history": "^4.7.2",
     "inversify": "^4.13.0",
     "react": "^16.4.1",

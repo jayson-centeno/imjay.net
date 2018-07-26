@@ -433,6 +433,8 @@ ul li {
 	margin-top: 5px
 }
 
+.margin-right-10 { margin-right: 10px;  }
+
 .publication.home {
 	margin-top: 80px;
 }
@@ -613,6 +615,8 @@ input.form-control, textarea.form-control {
 .emphasis {
 	font-weight: bolder;
 }
+
+#elNewGuid { width: 370px;}
 
 @-webkit-keyframes slide-down {
 	from {

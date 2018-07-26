@@ -39,7 +39,7 @@ class Home extends React.Component<PublicationProps, {}> {
                             As both designer and developer of projects that require <br /> a laser focus on both, 
                             I unite form and function to <br />meet both user needs and business goals.
                         </p>
-                        <p className="mid-text fadeInUp">
+                        <p className="mid-text animated fadeInUp">
                             Currently working as a FullStack Developer.
                         </p>
                     </Col>
