@@ -59,7 +59,7 @@ export class ContactForm extends React.Component<ContactProps, any> {
     public render() {
         
         return <OneColumnContentBody {...this.props} Title="Feel free to contact me.">
-            <Form model="contact" onSubmit={this.handleSubmit} >
+            <Form model="contact" onSubmit={this.handleSubmit} className="animated fadeIn" >
                 <Row>
                     <Col md={6}>
                         <FormGroup>

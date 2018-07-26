@@ -8,7 +8,7 @@ export class TwoColumnContentBody extends React.Component<TwoColumnContentBodyPr
     public render() {
         return <ContentBody {...this.props}>
             <div className="col-md-7">
-                <h1 className="main-title publication-title">{this.props.Title}</h1>
+                <h1 className="main-title publication-title animated fadeInUp">{this.props.Title}</h1>
             </div>
             <div className="col-md-5">
                 {this.props.children}

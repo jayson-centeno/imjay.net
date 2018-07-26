@@ -5,10 +5,10 @@ export class Header extends React.Component<{}, {}> {
     public render() {
         return <div className='row'>
             <div className="col-sm-9">
-                <Link className="logo-link" to={'/'}><h3 className="logo-text">Hi! I'm Jayson Centeno <span className="blinker" /></h3></Link>
+                <Link className="logo-link" to={'/'}><h3 className="logo-text animated fadeIn">Hi! I'm Jayson Centeno <span className="blinker" /></h3></Link>
             </div>
             <div className="col-sm-3 pull-right">
-                <h3><a id="login">Login</a></h3>
+                <h3><a id="login" className="animated fadeIn">Login</a></h3>
             </div>
         </div>;
     }

@@ -9,7 +9,7 @@ export class Footer extends React.Component<any, any> {
 
     public render() {
         return <div>
-            <div className='footer margin-bottom-120 margin-top-50'>
+            <div className='footer margin-bottom-120 margin-top-50 animated fadeIn'>
 
                 <div className='container'>
                     <div className="row">

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export class TopNavMenu extends React.Component<{}, {}> {
     public render() {
-        return <nav className="navbar navbar-default custom-nav">
+        return <nav className="navbar navbar-default custom-nav animated fadeIn">
             <div className="container">
                 <div className="navbar-headerclassName">
                     <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

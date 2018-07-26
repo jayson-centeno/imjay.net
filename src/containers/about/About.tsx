@@ -14,7 +14,7 @@ export default class About extends React.Component<AboutProps, {}> {
                 <title>About Jayson Centeno</title>
                 <meta content="Jayson Centeno, personal website, tools, publications" name="keywords" />
             </Helmet>
-            <Row>
+            <Row className="animated fadeIn">
                 <Col md={8}>
                     <p>
                         Hi I'm <b className="emphasis">Jayson</b>, a Senior .Net and Front end developer based in Manila, Philippines.

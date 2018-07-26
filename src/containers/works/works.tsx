@@ -22,7 +22,7 @@ export default class Works extends React.Component<WorksProps, {}> {
             <Helmet>
                 <title>Jayson Centeno Works</title>
             </Helmet>
-            <Row>
+            <Row className="animated fadeIn">
                 <Col md={4} className="works margin-bottom-60">
                     <div className="hovereffect">
                         <img src={hr360} className="img-responsive" />

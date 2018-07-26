@@ -26,7 +26,7 @@ export class Publication extends React.Component<PublicationProps, {}> {
     public render() {
         return <div className={this.props.isLoading ? "row hidden" : "row"}>
             <Col md={12}>
-                <ul className="pub-parent">
+                <ul className="pub-parent animated fadeIn">
                     {this.renderPublications(this.props.publications)}
                 </ul>
             </Col>
