@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { Grid } from 'react-bootstrap';
-import { Footer } from './components/footer/Footer';
-import { Header } from './components/header/Header';
-import { TopNavMenu } from './components/topNavMenu/TopNavMenu';
+import { Container } from 'react-bootstrap';
+import { Footer } from './components/Footer/Footer';
+import { Header } from './components/Header/Header';
+import { TopNavMenu } from './components/TopNavMenu/TopNavMenu';
 
 export default class App extends React.Component<{}, {}> {
-  public render() {
+    public render() {
         return <div>
-            <Grid>
+            <Container>
                 <Header />
                 <TopNavMenu />
-            </Grid>
+            </Container>
             {this.props.children}
             <Footer />
-        </div>;
+        </div>
     }
 }

@@ -5,12 +5,11 @@ import { ITitleProps } from '../../../common/Common'
 import { RouteComponentProps } from 'react-router-dom'
 import { Guid } from "guid-typescript";
 
-type props = ITitleProps  & RouteComponentProps<any>;
+type props = ITitleProps & RouteComponentProps<any>;
 
 export default class GuidCreator extends React.Component<props, any> {
 
-    public constructor(prop:props)
-    {
+    public constructor(prop: props) {
         super(prop);
         this.onClick.bind(this);
     }
@@ -25,7 +24,7 @@ export default class GuidCreator extends React.Component<props, any> {
             <Row>
                 <Col md={8}>
                     <FormGroup className="form-inline">
-                        <Button type="button" htmlFor="elNewGuid" className="btn btn-success margin-right-10" onClick={this.onClick} >Generate</Button>
+                        <Button type="button" className="btn btn-success margin-right-10" onClick={this.onClick} >Generate</Button>
                         <input type="text" id="elNewGuid" className="form-control" />
                     </FormGroup>
                 </Col>

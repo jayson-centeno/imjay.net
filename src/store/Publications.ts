@@ -12,7 +12,7 @@ export interface IPublicationsState {
 export interface IPublication {
     id: number
     title: string
-    description:string
+    description: string
 }
 
 interface IRequestPlublicationAction {
@@ -28,13 +28,13 @@ type KnownAction = IRequestPlublicationAction | IReceivePlublicationAction;
 
 export const actionCreators = {
 
-    fetchPublications: () : IAppThunkAction<KnownAction> => (dispatch) => {
+    fetchPublications: (): IAppThunkAction<KnownAction> => (dispatch) => {
 
         const service = container.get<IPublicationService>("IPublicationService");
         const fetchTask = service.getPublications()
             .then(response => {
                 const data = response.data as IPublication[];
-                dispatch({ type: 'ReceivePublications', publications: data }); 
+                dispatch({ type: 'ReceivePublications', publications: data });
             });
 
         addTask(fetchTask);
@@ -44,8 +44,7 @@ export const actionCreators = {
 }
 
 const unloadedState: IPublicationsState = { isLoading: false, publications: [] }
-export const reducer: Reducer<IPublicationsState> = (state: IPublicationsState, incomingAction: KnownAction) =>
-{
+export const reducer: Reducer<IPublicationsState> = (state: IPublicationsState, incomingAction: KnownAction) => {
     switch (incomingAction.type) {
         case 'FetchPublications':
             return {

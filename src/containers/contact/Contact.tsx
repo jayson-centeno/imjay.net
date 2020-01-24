@@ -31,20 +31,20 @@ export class ContactForm extends React.Component<ContactProps, any> {
     }
 
     public handleSubmit(contact: any) {
-        
+
         if (this.validate()) {
 
             this.props.submitContact(contact.contact);
 
-            if(recaptchaInstance !== null){
+            if (recaptchaInstance !== null) {
                 recaptchaInstance.reset();
             }
-                
+
         }
-  
+
     }
 
-    public onloadCallback() { 
+    public onloadCallback() {
         // test
     }
 
@@ -57,7 +57,7 @@ export class ContactForm extends React.Component<ContactProps, any> {
     }
 
     public render() {
-        
+
         return <OneColumnContentBody {...this.props} Title="Feel free to contact me.">
             <Form model="contact" onSubmit={this.handleSubmit} className="animated fadeIn" >
                 <Row>
@@ -114,7 +114,7 @@ export class ContactForm extends React.Component<ContactProps, any> {
                 </Row>
                 <Row>
                     <Col md={12}>
-                        <Button type="submit" className="btn btn-default">Submit!</Button>
+                        <Button type="submit" variant="light">Submit!</Button>
                     </Col>
                 </Row>
             </Form>

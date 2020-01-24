@@ -17,11 +17,11 @@ export default class About extends React.Component<AboutProps, {}> {
             <Row className="animated fadeIn">
                 <Col md={8}>
                     <p>
-                        Hi I'm <b className="emphasis">Jayson</b>, a Senior .Net and Front end developer based in Manila, Philippines.
+                        Hi I'm <b className="emphasis">Jayson</b>, a Full Stack Developer based in Manila, Philippines.
                     </p>
                     <br />
                     <p>
-                        I'm currently working as a Fullstack developer at <a className="link" href="https://www.hr360.com">HR360</a> where we design and enhance the current website functionality.
+                        I'm currently working as a Full Stack developer at Eastvantage working with the <a className="link" href="https://www.spotbuycenter.com">Client</a> where we design and enhance the current website functionality.
                     </p>
                     <br />
                     <p>

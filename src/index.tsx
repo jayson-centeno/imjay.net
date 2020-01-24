@@ -11,7 +11,7 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 import registerServiceWorker from './registerServiceWorker';
-import { IApplicationState }  from './store';
+import { IApplicationState } from './store';
 import { ConnectedRouter } from 'connected-react-router'
 import App from './App';
 import { routes } from './routes';
@@ -23,22 +23,22 @@ const history = createBrowserHistory();
 const initialState = (window as any).initialReduxState as IApplicationState;
 const store = configureStore(history, initialState);
 
-function registerAuth(){
+function registerAuth() {
 
     const authenticationService = DIContainer.get<IAuthenticationService>("IAuthenticationService");
     const token = authenticationService.getAuthToken();
 
-    if(token !== null && token !== "") {
+    if (token !== null && token !== "") {
 
         renderApp();
-        
+
     } else {
 
         const request = authenticationService.getTokenFromDb({
             Email: Config.API_AUTH_USERNAME,
             Password: Config.API_AUTH_PASSWORD
         });
-    
+
         request.then(response => {
 
             authenticationService.setAuthToken({

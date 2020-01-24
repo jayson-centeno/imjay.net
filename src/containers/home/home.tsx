@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from 'react-router-dom';
-import { Publication } from "../publication/Publication";
+import Publication from "../../components/Publication/Publication";
 import * as PublicationStore from '../../store/publications';
 import { TwoColumnContentBody } from '../../components/master-layout/TwoColumnContentBody';
 import { IApplicationState } from '../../store';
-import { Grid, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 type PublicationProps = PublicationStore.IPublicationsState & typeof PublicationStore.actionCreators & RouteComponentProps<{}>;
 
@@ -21,10 +21,10 @@ class Home extends React.Component<PublicationProps, {}> {
             <Helmet>
                 <title>Jayson Centeno Personal Website</title>
             </Helmet>
-            <Grid>
+            <Container>
                 <Row className="margin-bottom-200">
                     <Col sm={6}>
-                        <h1 className="main-title animated fadeInUp">Jayson is a Passionate Senior .Net & Front-End Developer</h1>
+                        <h1 className="main-title animated fadeInUp">Jayson is a Passionate Full Stack Developer</h1>
                     </Col>
                     <Col sm={6}>
                         <div id="profile-pic" className="animated fadeIn" />
@@ -36,11 +36,11 @@ class Home extends React.Component<PublicationProps, {}> {
                         <hr className="divider1" />
                         <hr className="divider2" />
                         <p className="mid-text animated fadeInUp">
-                            As both designer and developer of projects that require <br /> a laser focus on both, 
+                            As both designer and developer of projects that require <br /> a laser focus on both,
                             I unite form and function to <br />meet both user needs and business goals.
                         </p>
                         <p className="mid-text animated fadeInUp">
-                            Currently working as a FullStack Developer.
+                            Currently working as a Full Stack Developer.
                         </p>
                     </Col>
                     <Col sm={5}>
@@ -63,10 +63,12 @@ class Home extends React.Component<PublicationProps, {}> {
                         </Row>
                     </Col>
                 </Row>
-            </Grid>
-            
+            </Container>
+
             <TwoColumnContentBody {...this.props} Title="Publications on .Net and Front end" CustomRootClass="home">
-                <Publication isLoading={this.props.isLoading} publications={this.props.publications} />
+                <div className="pub-parent">
+                    <Publication isLoading={this.props.isLoading} publications={this.props.publications} />
+                </div>
             </TwoColumnContentBody>
 
         </div>;
